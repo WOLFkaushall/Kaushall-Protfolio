@@ -663,7 +663,8 @@ body {
 }
 
 .glass-form input,
-.glass-form textarea {
+.glass-form textarea,
+.glass-form button{
   background: #000;
   border: 1px solid rgba(255,0,51,0.1);
   padding: 1.5rem;
