@@ -99,3 +99,26 @@ window.onclick = function(event) {
     const modal = document.getElementById("videoModal");
     if (event.target == modal) { closeVideo(); }
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('glass-form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // prevent default browser submit
+
+    const formData = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    }).then(() => {
+      alert('Thank you for your message! We will get back to you soon.');
+      form.reset();
+    }).catch((error) => {
+      alert('Oops! There was a problem submitting your form.');
+      console.error(error);
+    });
+  });
+});
